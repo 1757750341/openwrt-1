@@ -1,7 +1,7 @@
 #!/bin/sh
 
 uci -q set mac.@mac[0].interface="wan"
-[ -n $`uci -q get network.wan_dev` ] && uci -q set mac.@mac[0].interface="wan_dev"
+[ -n $`uci -q get network.wan_dev` ] && uci -q set mac.@mac[0].interface="wan_eth0_2_dev"
 uci commit mac
 
 chmod 777 /etc/init.d/mac 
