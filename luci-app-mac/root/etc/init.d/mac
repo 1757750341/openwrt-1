@@ -37,7 +37,7 @@ run_random()
 
 start() {
 	mac=$(uci get mac.@mac[0].macaddr 2>/dev/null)
-	wan_network_mac=$(uci get network.$interface.macaddr 2>/dev/null)
+	wan_network_mac=$(uci get network.wan_eth0_2_dev.macaddr 2>/dev/null)
 	reboot_run=$(uci get mac.@mac[0].reboot_run 2>/dev/null)
 	if [ "$reboot_run" != "1" ]; then
 		sed -i '/#random_mac/d' /etc/rc.local >/dev/null 2>&1
@@ -49,7 +49,7 @@ start() {
 	[ -n "$mac" ] || return 0
 	
 	if [ "$mac" != "$wan_network_mac" ]; then
-		uci set network.$interface.macaddr="$mac" 2>/dev/null
+		uci set network.wan_eth0_2_dev.macaddr="$mac" 2>/dev/null
 		uci commit 2>/dev/null
 		sleep 1
 		/etc/init.d/network reload
@@ -64,7 +64,7 @@ stochastic(){
 restart()
 {	
 	local stom=$("stochastic")
-	uci set network.$interface.macaddr="$stom" 2>/dev/null
+	uci set network.wan_eth0_2_dev.macaddr="$stom" 2>/dev/null
 	uci commit 2>/dev/null
 	/etc/init.d/network reload
 
