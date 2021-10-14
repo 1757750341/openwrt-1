@@ -4,5 +4,5 @@ config mac
 	option week '0'
 	option hour '0'
 	option minute '0'
-	option macc '11:11:11:01:11:11'
+	option mac '11:11:11:01:11:11'
 
