@@ -1,8 +1,5 @@
 #!/bin/sh /etc/rc.common
 
-#----------------------------------------------
-#Copyright (C) 2019 Twinzo1 <1282055288@qq.com>
-#----------------------------------------------
 START=90
 
 interface=$(uci get mac.@mac[0].interface 2>/dev/null)
