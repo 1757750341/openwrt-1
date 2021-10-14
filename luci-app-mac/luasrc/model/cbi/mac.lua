@@ -8,7 +8,7 @@ local sys = require "luci.sys"
 m = Map("mac", translate("Mac address"),
 	translate("Clone Wan address")
 	..[[<br /><strong>]]
-	..[[<a href="https://github.com/Twinzo1/openwrt/tree/master/luci-app-mac" target="_blank">]]
+	..[[<a href="#" target="_blank">]]
 	..translate("Project address")
 	..[[</a>]]
 	..[[</strong><br />]])
